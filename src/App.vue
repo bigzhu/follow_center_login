@@ -1,64 +1,131 @@
 <template>
   <div id="app">
-    <img class="logo" src="./assets/logo.png">
-    <hello></hello>
-    <p>
-      Welcome to your Vue.js app!
-    </p>
-    <p>
-      To get a better understanding of how this boilerplate works, check out
-      <a href="http://vuejs-templates.github.io/webpack" target="_blank">its documentation</a>.
-      It is also recommended to go through the docs for
-      <a href="http://webpack.github.io/" target="_blank">Webpack</a> and
-      <a href="http://vuejs.github.io/vue-loader/" target="_blank">vue-loader</a>.
-      If you have any issues with the setup, please file an issue at this boilerplate's
-      <a href="https://github.com/vuejs-templates/webpack" target="_blank">repository</a>.
-    </p>
-    <p>
-      You may also want to checkout
-      <a href="https://github.com/vuejs/vue-router/" target="_blank">vue-router</a> for routing and
-      <a href="https://github.com/vuejs/vuex/" target="_blank">vuex</a> for state management.
-    </p>
+  <div class="ui middle aligned center aligned grid login">
+    <div class="column">
+      <div class="ui header logo">
+        <img src="../../static/assets/logo.png">
+      </div>
+      <p class="discription">发现更大更美好的世界</p>
+      <form class="ui large form oauth-width-bz">
+        <div class="ui login">
+          <component :oauths="oauths" :url="url" :function_name="function_name" :is="current_view">
+          </component>
+          <p>没有社交帐号? <a href="/#guest">随意逛逛</a></p>
+        </div>
+      </form>      
+    </div>
+  </div>
+  <div class="ui middle aligned center aligned grid login-footer">
+    <div class="column">
+      <a href="/about.html">关于Follow Center</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="##" class="download-app">手机客户端下载</a>
+    </div>
+  </div>
+  <div class="ui flowing popup top left transition visible animating scale out phone-bz">
+    <div class="ui column divided center aligned grid">
+      <div class="column">
+        <a href="/static/follow_center.apk" target="blank"><img src="../../static/assets/andriod.svg">&nbsp;&nbsp;&nbsp;安卓手机端下载</a>
+      </div>
+    </div>
+  </div>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
-
-export default {
-  components: {
-    Hello
+  import Oauth2 from 'bz-oauth2-button'
+  export default {
+    data: function () {
+      return {
+        current_view: 'Oauth2',
+        oauths: [ 'github', 'twitter', 'facebook', 'qq' ]
+      }
+    },
+    components: {
+      Oauth2
+    }
   }
-}
 </script>
 
 <style>
-html {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-#app {
-  color: #2c3e50;
-  margin-top: -100px;
-  max-width: 600px;
-  font-family: Source Sans Pro, Helvetica, sans-serif;
-  text-align: center;
-}
-
-#app a {
-  color: #42b983;
-  text-decoration: none;
-}
-
-.logo {
-  width: 100px;
-  height: 100px
-}
+  body {
+    background-color: #F7F7F7;
+  }
+  .ui.middle.aligned.center.aligned.grid.login {
+    height: 90%;
+  }
+  .ui.header+p.discription {
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.4);
+    margin-top: 1.5em;
+  }
+  .ui.header.logo>img:only-child {
+    margin: 0;
+  }
+  .image {
+    margin-top: -100px;
+  }
+  .column {
+    max-width: 450px;
+  }
+  .ui.header.logo>img {
+    width: 15em;
+    margin-bottom: -0.3em;
+  }
+  .ui.login {
+    border-radius: 0.1em;
+    margin-top: 1.5em;
+    padding: 3em 0;
+    border-color: #fff;
+  }
+  .ui.login p {
+    font-size: 0.8em;
+    margin-top: 0.8em;
+    color: rgba(0, 0, 0, 0.4)
+  }
+  .ui.login p a {
+    color: #2EA974;
+  }
+  .ui.login.twitter.button {
+    border-radius: 4em;
+  }
+  .ui.button.oauth {
+    border-radius: 4em;
+    opacity: 0.8;
+  }
+  .ui.twitter.button {
+    background-color: #2B7BB9
+  }
+  .ui.form.oauth-width-bz {
+    width: 130%;
+    max-width: none;
+    margin-left: -4em;
+  }
+  .login-footer {
+    font-size: 0.9em;
+    padding: 0 auto;
+  }
+  .login-footer a {
+    color: rgba(0, 0, 0, 0.4);
+  }
+  .ui.popup.phone-bz {
+    border: none;
+    border-radius: 0.06em;
+    background: rgba(255, 255, 255, 0.74);
+    box-shadow: 0 2px 4px 0 rgba(34, 36, 38, 0.07),0 2px 10px 0 rgba(34, 36, 38, 0.09);
+  }
+  .ui.popup.phone-bz:before {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    box-shadow: none;
+  }
+  .ui.popup.phone-bz a{
+    color: #54B98F;
+  }
+  @media (max-width : 800px) {
+    .ui.form.oauth-width-bz {
+      width: 100%;
+      margin-left: 0;
+      max-width: 100%;
+    }
+  }
 </style>
