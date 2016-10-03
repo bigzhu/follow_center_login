@@ -3,7 +3,7 @@
   <div class="ui middle aligned center aligned grid login">
     <div class="column">
       <div class="ui header logo">
-        <img src="../../static/assets/logo.png">
+        <img src="./assets/logo.png">
       </div>
       <p class="discription">发现更大更美好的世界</p>
       <form class="ui large form oauth-width-bz">
@@ -24,7 +24,7 @@
   <div class="ui flowing popup top left transition visible animating scale out phone-bz">
     <div class="ui column divided center aligned grid">
       <div class="column">
-        <a href="/static/follow_center.apk" target="blank"><img src="../../static/assets/andriod.svg">&nbsp;&nbsp;&nbsp;安卓手机端下载</a>
+        <a href="/static/follow_center.apk" target="blank"><img src="./assets/andriod.svg">&nbsp;&nbsp;&nbsp;安卓手机端下载</a>
       </div>
     </div>
   </div>
