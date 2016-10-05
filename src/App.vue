@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="ui flowing popup top left transition visible animating scale out phone-bz">
-          <a href="/static/follow_center.apk" target="blank"><img src="./assets/android.svg">&nbsp;&nbsp;&nbsp;安卓手机端下载</a>
+      <a href="/static/follow_center.apk" target="blank"><img src="./assets/android.svg">&nbsp;&nbsp;&nbsp;安卓手机端下载</a>
     </div>
   </span>
 </template>
