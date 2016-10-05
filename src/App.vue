@@ -31,6 +31,14 @@
 <script>
   import $ from 'jquery'
   import Oauth2 from 'bz-oauth2-button'
+  import 'bz-semantic-ui-site'
+  import 'bz-semantic-ui-reset'
+  import 'bz-semantic-ui-container'
+  import 'bz-semantic-ui-grid'
+  import 'bz-semantic-ui-header'
+  import 'bz-semantic-ui-button'
+  import 'bz-semantic-ui-popup'
+  import 'bz-semantic-ui-transition'
   export default {
     props: ['url', 'function_name'],
     components: {
