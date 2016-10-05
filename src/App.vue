@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <app id="app">
   <div class="ui middle aligned center aligned grid login">
     <div class="column">
       <div class="ui header logo">
@@ -28,7 +28,7 @@
       </div>
     </div>
   </div>
-  </div>
+  </app>
 </template>
 
 <script>
