@@ -1,47 +1,67 @@
 <template>
-  <app id="app">
-  <div class="ui middle aligned center aligned grid login">
-    <div class="column">
-      <div class="ui header logo">
-        <img src="./assets/logo.png">
-      </div>
-      <p class="discription">发现更大更美好的世界</p>
-      <form class="ui large form oauth-width-bz">
-        <div class="ui login">
-          <component :oauths="oauths" :url="url" :function_name="function_name" :is="current_view">
-          </component>
-          <p>没有社交帐号? <a href="/#guest">随意逛逛</a></p>
-        </div>
-      </form>      
-    </div>
-  </div>
-  <div class="ui middle aligned center aligned grid login-footer">
-    <div class="column">
-      <a href="/about.html">关于Follow Center</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="##" class="download-app">手机客户端下载</a>
-    </div>
-  </div>
-  <div class="ui flowing popup top left transition visible animating scale out phone-bz">
-    <div class="ui column divided center aligned grid">
+  <span>
+    <div class="ui middle aligned center aligned grid login">
       <div class="column">
-        <a href="/static/follow_center.apk" target="blank"><img src="./assets/andriod.svg">&nbsp;&nbsp;&nbsp;安卓手机端下载</a>
+        <div class="ui header logo">
+          <img src="./assets/logo.png">
+        </div>
+        <p class="discription">发现更大更美好的世界</p>
+        <!-- <p>猥琐的跟踪牛人/美女的一举一动</p> -->
+        <form class="ui large form oauth-width-bz">
+          <div class="ui login">
+            <oauth2 :oauths="oauths" :url="url" :function_name="function_name"></oauth2>
+            <!-- </br> -->
+            <p>没有社交帐号? <a href="/#guest">随意逛逛</a></p>
+          </div>
+        </form>      
       </div>
     </div>
-  </div>
-  </app>
+    <div class="ui middle aligned center aligned grid login-footer">
+      <div class="column">
+        <a href="/about.html">关于Follow Center</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="##" class="download-app">手机客户端下载</a>
+      </div>
+    </div>
+    <div class="ui flowing popup top left transition visible animating scale out phone-bz">
+          <a href="/static/follow_center.apk" target="blank"><img src="./assets/android.svg">&nbsp;&nbsp;&nbsp;安卓手机端下载</a>
+    </div>
+  </span>
 </template>
 
 <script>
+  import $ from 'jquery'
   import Oauth2 from 'bz-oauth2-button'
   export default {
-    data: function () {
+    props: ['url', 'function_name'],
+    components: {
+      Oauth2
+    },
+    data () {
       return {
-        current_view: 'Oauth2',
         oauths: [ 'github', 'twitter', 'facebook', 'qq' ]
       }
     },
-    components: {
-      Oauth2
+    mounted: function () {
+      this.$nextTick(
+        function () {
+          // var tool_tips_target = $(this.$el).find('.download-app')
+          var tool_tips_target = $('.download-app')
+          // var popup_content = $(this.$el).find('.popup')
+          var popup_content = $('.popup')
+          $(tool_tips_target).popup(
+            {
+              popup: $(popup_content),
+              lastResort: true,
+              // position: 'bottom left',
+              hoverable: true,
+              delay: {
+                show: 100,
+                hide: 500
+              }
+            }
+          )
+        }
+      )
     }
   }
 </script>
